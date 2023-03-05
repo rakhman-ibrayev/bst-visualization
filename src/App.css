@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: 1.125rem;
+    text-align: center;
+}
+body > div {
+    height: 100%;
+    width: 90%;
+    margin-inline: auto;
+}
+
+
+.tree {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sub-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.sub-tree--with-parent {
+    width: 50%;
+}
+.sub-tree--left {
+    margin-right: auto;
+}
+.sub-tree--right {
+    margin-left: auto;
+}
+
+
+.path {
+    width: calc(100% - 19px);
+    height: 1px;
+    background-color: #000;
+}
+.path--with-child {
+    width: 50%;
+}
+.sub-tree--left > .path {
+    align-self: flex-end;
+}
+.sub-tree--right > .path {
+    align-self: flex-start;
+}
+
+
+.children {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 100%;
+    border: 1px solid #000;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.sub-tree--with-parent > .node::before {
+    content: '';
+    position: absolute;
+    top: -1rem; left: 0; right: 0;
+    margin-inline: auto;
+    width: 1px;
+    height: 1rem;
+    background-color: #000;
+}
+.node--with-child::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem; left: 0; right: 0;
+    margin-inline: auto;
+    width: 1px;
+    height: 1rem;
+    background-color: #000;
+}
+.sub-tree--left > .node--without-child {
+    align-self: flex-start;
+}
+.sub-tree--right > .node--without-child {
+    align-self: flex-end;
+}
